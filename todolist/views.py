@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 
 from .models import Task
-
+from .forms import TaskForm
 
 def home(request):
     return render(request, 'todolist/index.html')
@@ -36,9 +36,27 @@ def taskCreate(request):
     return render(request, 'todolist/task_create.html')
 
 
-def taskUpdate(request):
-    pass
+def taskUpdate(request, task_id):
+    task = get_object_or_404(Task, id=task_id)
+
+    if request.method == "POST":
+
+        form = TaskForm(request.POST, instance=Task)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect('/tasks/')
+
+    else:
+        form = TaskForm()
+
+    return render(request, 'todolist/task_update.html', {'form': form})
 
 
-def taskDelete(request, obj):
-    pass
+def taskDelete(request, task_id):
+    task = get_object_or_404(Task, id=task_id)
+    if request.method == 'POST':
+        task.delete()
+        return redirect('tasks/')  # Redirect to the task list after deletion
+    return render(request, 'todolist/task_confirm_delete.html', {'task': task})
