@@ -1,28 +1,31 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
+from django.views.generic import TemplateView, ListView, DetailView
 
 from .models import Task
 from .forms import TaskForm
 
-def home(request):
-    return render(request, 'todolist/index.html')
+
+class IndexView(TemplateView):
+    template_name = "todolist/index.html"
 
 
-def taskList(request):
-    tasks = Task.objects.all()
+class TaskListView(ListView):
+    model = Task
+    context_object_name = "tasks"
 
-    return render(request, 'todolist/task_list.html', {'tasks': tasks})
+    def get_queryset(self):
+        return Task.objects.all()[:10]
+    
 
-
-def taskDetail(request, pk):
-    task = Task.objects.get(pk=pk)
-    return render(request, 'todolist/task_detail.html', {'task': task})
+def taskDetail(request, task_id):
+   task = get_object_or_404(Task, pk=task_id)
+   return render(request, 'todolist/task_detail.html', {'task': task})
 
 
 def create_task(request):
     if request.method == "POST":
         title = request.POST.get('title')
-        print(title)
         description = request.POST.get('description')
         deadline = request.POST.get('deadline')
 
@@ -31,7 +34,6 @@ def create_task(request):
             description = description,
             deadline = deadline
         )
-        print(task)
         task.save()
 
         return redirect('/tasks/')

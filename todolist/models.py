@@ -12,10 +12,6 @@ class Task(models.Model):
     def __str__(self):
         return self.title
 
-    
     class Meta:
-        # db_table = ''
-        # managed = True
-        # verbose_name = 'ModelName'
-        # verbose_name_plural = 'ModelNames'
-        pass
+        ordering = ["-created_on"]
+        #verbose_name = 'Task'
