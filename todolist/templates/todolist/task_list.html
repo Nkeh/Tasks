@@ -7,10 +7,11 @@
   {% for task in tasks %}
   <li>
     <h2><a href="{% url 'task.detail' task.id %}">{{task.title}}</a></h2>
-  </li>
+  
   <p>{{task.description}}</p>
   <p>Due: <b>{{task.deadline}}</b></p>
   <hr />
+  </li>
   {% endfor %}
 </ul>
 {% endblock content %}

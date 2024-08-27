@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     # dev apps
     'todolist',
+    'users',
+    
 ]
 
 MIDDLEWARE = [
