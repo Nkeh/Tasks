@@ -1,5 +1,6 @@
 from django.db import models
 from users.models import Profile
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -10,7 +11,7 @@ class Task(models.Model):
     deadline = models.DateTimeField()
     completed = models.BooleanField(default=False)
     atachment = models.FileField(upload_to="media/", blank=True, null=True)
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='tasks')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tasks')
 
 
 

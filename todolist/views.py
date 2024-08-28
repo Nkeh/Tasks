@@ -1,8 +1,10 @@
+from urllib import request
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, Http404
 from django.contrib import messages
 from django.views.generic import TemplateView, ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 from .models import Task
 from .forms import TaskForm
@@ -18,24 +20,29 @@ class TaskListView(LoginRequiredMixin, ListView):
     login_url = '/admin'
 
     def get_queryset(self):
-        return Task.objects.filter(completed=False)[:10]
+        return self.request.user.tasks.filter(completed=False)
     
 
+
+@login_required(login_url='login')
 def taskDetail(request, task_id):
    task = get_object_or_404(Task, pk=task_id)
    return render(request, 'todolist/task_detail.html', {'task': task})
 
 
+@login_required(login_url='login')
 def create_task(request):
     if request.method == "POST":
         title = request.POST.get('title')
         description = request.POST.get('description')
         deadline = request.POST.get('deadline')
+        user = request.user
 
         task = Task(
             title = title,
             description = description,
-            deadline = deadline
+            deadline = deadline,
+            user = user
         )
         task.save()
 
@@ -44,6 +51,7 @@ def create_task(request):
     return render(request, 'todolist/task_create.html')
 
 
+@login_required(login_url='login')
 def update_task(request, task_id):
     task = get_object_or_404(Task, id=task_id)
 
@@ -63,6 +71,7 @@ def update_task(request, task_id):
     return render(request, 'todolist/task_update.html', {'form': form})
 
 
+@login_required(login_url='login')
 def taskDelete(request, task_id):
     task = get_object_or_404(Task, id=task_id)
     if request.method == 'POST':
