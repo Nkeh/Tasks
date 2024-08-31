@@ -1,17 +1,20 @@
 {% extends 'base.html' %} 
 {% block title %}Task List{% endblock title %}
 {% block content %}
-<h1>Your Tasks</h1>
+<div class="body">
+  <h1>Your Tasks</h1>
 
-<ul>
-  {% for task in tasks %}
-  <li>
-    <h2><a href="{% url 'task.detail' task.id %}">{{task.title}}</a></h2>
-  
-  <p>{{task.description}}</p>
-  <p>Due: <b>{{task.deadline}}</b></p>
-  <hr />
-  </li>
-  {% endfor %}
-</ul>
+
+    {% for task in tasks %}
+    <div class="tasklist">
+      <h2><a href="{% url 'task.detail' task.id %}">{{task.title}}</a></h2>
+    
+      <div class="description">
+        <p>{{task.description}}</p>
+        
+        <p class="duedate">Due: <b> {{task.deadline}}</b></p>
+      </div>
+    </div>
+    {% endfor %}
+
 {% endblock content %}

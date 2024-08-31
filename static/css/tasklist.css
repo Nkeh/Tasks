@@ -1,0 +1,33 @@
+.tasklist{
+    display: block;
+    margin: 30px;
+    padding: 20px;
+    background: #fff;
+    line-height: 30px;
+    border-radius: 20px;
+}
+
+.tasklist h2 a{
+    text-decoration: none;
+    color: rgba(39, 39, 39, 0.805);
+    font-size: 35px;
+}
+
+.description{
+    margin-top: 5px;
+    background: linear-gradient(160deg, #c9e0fc, #6194d2);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.duedate {
+    display: flex;
+    font-size: 12px;
+}
+
+.duedate b{
+    font-style: italic;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: blue;
+}
+
