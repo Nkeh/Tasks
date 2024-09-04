@@ -5,7 +5,7 @@
 }
 
 body{
-    background: #c9e0fc;
+    background: white;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 5px;
 }
@@ -20,10 +20,31 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 10px;
+    color: black;
+    
 }
 
 nav .nav1{
     display: inline-block;
+    text-align: left;
+    
+}
+
+nav .nav1 a{
+    text-decoration: none;
+    color: black;
+    padding: 0 5px;
+}
+
+
+nav .auth{
+    display: inline-block;
     text-align: right;
 }
 
+nav .auth a{
+    text-decoration: none;
+    color: black;
+    padding: 0 5px;
+}

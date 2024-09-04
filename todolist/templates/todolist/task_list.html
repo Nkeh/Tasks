@@ -1,12 +1,8 @@
 {% extends 'base.html' %} 
 {% block title %}Task List{% endblock title %}
+
+{% block header %}Your Task{% endblock header %}
 {% block content %}
-  <div class="body">
-
-    <div class="header">
-      <h1 >Your Tasks</h1>
-    </div>
-
 
     {% for task in tasks %}
     <div class="tasklist">

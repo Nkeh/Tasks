@@ -2,7 +2,7 @@
     display: block;
     margin: 30px;
     padding: 20px;
-    background: #fff;
+    background: #c9e0fc;
     line-height: 30px;
     border-radius: 20px;
 }
@@ -35,5 +35,7 @@
 .header{
     display: flex;
     align-items: center;
+    text-align: center;
+    justify-content: center;
     margin: auto;
 }
