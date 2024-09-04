@@ -31,3 +31,9 @@
     color: blue;
 }
 
+
+.header{
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
