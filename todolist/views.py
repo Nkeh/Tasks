@@ -17,7 +17,7 @@ class IndexView(TemplateView):
 class TaskListView(LoginRequiredMixin, ListView):
     model = Task
     context_object_name = "tasks"
-    login_url = '/admin'
+    login_url = 'login'
 
     def get_queryset(self):
         return self.request.user.tasks.filter(completed=False)

@@ -22,6 +22,8 @@ nav{
     justify-content: space-between;
     padding: 0 10px;
     color: black;
+    background-color: #c9e0fc;
+    height: 60px;
     
 }
 
@@ -47,4 +49,80 @@ nav .auth a{
     text-decoration: none;
     color: black;
     padding: 0 5px;
+}
+
+/*************************************************************************************************************/
+
+
+.tasklist{
+    display: block;
+    margin: 30px;
+    padding: 20px;
+    background: #c9e0fc;
+    line-height: 30px;
+    border-radius: 20px;
+}
+
+.tasklist h2 a{
+    text-decoration: none;
+    color: rgba(39, 39, 39, 0.805);
+    font-size: 35px;
+}
+
+.description{
+    margin-top: 5px;
+    background: linear-gradient(160deg, #ffffff, #eaf1fa);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.duedate {
+    display: flex;
+    font-size: 12px;
+}
+
+.duedate b{
+    font-style: italic;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: blue;
+}
+
+
+.header{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title .edit{
+    justify-content: flex-end;
+}
+
+
+/***********************************************************************************************************/
+
+
+form{
+    display: block;
+    width: 90%;
+    max-width: 600px;
+    color: #000;
+    background-color: #c9e0fc;
+    margin: 80px auto 80px;
+    border-radius: 20px;
+    padding: 40px 35px;
+    /* text-align: center; */
+}
+
+form p{
+    display: flex;
+    line-height: 22px;
+    margin: 10px 0;
 }

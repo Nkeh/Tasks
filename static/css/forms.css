@@ -1,0 +1,16 @@
+form{
+    display: block;
+    width: 90%;
+    max-width: 600px;
+    color: #000;
+    background-color: #c9e0fc;
+    margin: 80px auto 80px;
+    border-radius: 20px;
+    padding: 40px 35px;
+    /* text-align: center; */
+}
+
+form p{
+    line-height: 22px;
+    margin: 10px 0;
+}

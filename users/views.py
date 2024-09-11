@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
+from .models import Profile
 from .forms import LoginForm, SignUpForm
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate 
@@ -46,5 +47,12 @@ def userLogout(request):
         messages.success(request, 'You have been logged out')
         return redirect('home')
     return render(request, 'users/logout.html')
+
+
+def profile_update(request):
+    user = request.user
+    profile = get_object_or_404(Profile, user = user)
+
+    
     
 

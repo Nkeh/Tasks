@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Update Task</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <h1>Update Task</h1>
+{% extends 'base.html' %} 
 
-        <form method="POST">
+{% block title %}Task Update{% endblock title %}
+
+{% block header %}Update Task{% endblock header %}
+{% block content %}
+        
+        <form method="POST" class="update-task-form">
             {% csrf_token %}
             {{ form.as_p }}
 
@@ -21,5 +15,4 @@
 
         
         <script src="" async defer></script>
-    </body>
-</html>
+{% endblock %}

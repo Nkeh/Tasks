@@ -1,26 +1,24 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Create Task</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <h1>Create Task</h1>
+{% extends "base.html" %}
+
+{% block title %}Create Task{% endblock title %}
+
+{% block header %}Create Task{% endblock header %}
+
+{% block content %}
+
 
         <form method="POST">
             {% csrf_token %}
 
-            
+            <p>
             <label for="title">Title</label>
-            <input type="text" name="title" id="title" placeholder="Enter the Task" maxlegnth="200" Required/><br>
+            <input type="text" name="title" id="title" placeholder="Enter the Task" maxlegnth="200" Required/><br></p>
+            <p>
             <label for="description">Description</label>
-            <textarea name="description" id="description" rows="5" cols="30"></textarea><br>
+            <textarea name="description" id="description" rows="5" cols="30"></textarea><br></p>
+            <p>
             <label for="deadline">Deadline</label>
-            <input type="datetime-local" name="deadline" id="deadline" Required/><br>
+            <input type="datetime-local" name="deadline" id="deadline" Required/><br></p>
 
             <button type="submit">Create Task</button>
             
@@ -28,5 +26,5 @@
 
         
         <script src="" async defer></script>
-    </body>
-</html>
+
+{% endblock content %}

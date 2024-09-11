@@ -15,7 +15,7 @@
 
 .description{
     margin-top: 5px;
-    background: linear-gradient(160deg, #c9e0fc, #6194d2);
+    background: linear-gradient(160deg, #ffffff, #eaf1fa);
     padding: 5px;
     border-radius: 10px;
 }
@@ -38,4 +38,8 @@
     text-align: center;
     justify-content: center;
     margin: auto;
+}
+
+.title {
+    display: flex;
 }
