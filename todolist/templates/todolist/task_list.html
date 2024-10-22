@@ -9,13 +9,17 @@
     {% for task in tasks %}
     <div class="tasklist">
       <h2><a href="{% url 'task.detail' task.id %}">{{task.title}}</a></h2>
-    
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
       <div class="description">
         <p>{{task.description}}</p>
         
         <p class="duedate">Due: <b> {{task.deadline}}</b></p>
       </div>
     </div>
+
     {% endfor %}
 
 {% endblock content %}
